@@ -1,0 +1,35 @@
+[
+  {
+    "number": 1,
+    "title": "What is a Hitchhiker to the Future?",
+    "duration": "~25 min",
+    "date": "2026-01-30",
+    "type": "solo",
+    "embedUrl": "",
+    "description": "Introducing the Hitchhiker frame: who's crossed the threshold, why the old coordination infrastructure is breaking, and what we're building instead.",
+    "showNotes": "",
+    "transcriptUrl": ""
+  },
+  {
+    "number": 2,
+    "title": "The Six Games Framework",
+    "duration": "~30 min",
+    "date": "2026-02-06",
+    "type": "solo",
+    "embedUrl": "",
+    "description": "The six games everyone's playing—and how to recognize which one you're in before you over-commit.",
+    "showNotes": "",
+    "transcriptUrl": ""
+  },
+  {
+    "number": 3,
+    "title": "Why Networks Keep Failing Smart People",
+    "duration": "~28 min",
+    "date": "2026-02-13",
+    "type": "solo",
+    "embedUrl": "",
+    "description": "Maximum clarity, minimum coordination. Why the best networks reject the people who see the most—and what to do about it.",
+    "showNotes": "",
+    "transcriptUrl": ""
+  }
+]

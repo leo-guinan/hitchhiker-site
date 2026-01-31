@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Hitchhiker's Guide to the Future
 
-## Getting Started
+Next.js site for [hitchhikersguidetothefuture.com](https://hitchhikersguidetothefuture.com): the hub for the Hitchhiker identity, guides, podcast, email course funnel, consulting agency, and waystations.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4** + `@tailwindcss/typography`
+- **MDX** (guides & essays via `next-mdx-remote`, content in `content/`)
+- **TypeScript**
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and set:
 
-## Learn More
+- **`NEXT_PUBLIC_SUBSTACK_URL`** – Substack publication URL (e.g. `https://yoursubstack.substack.com`). Used by email capture to redirect after signup.
+- **`NEXT_PUBLIC_PLAUSIBLE_DOMAIN`** – Plausible analytics domain (e.g. `hitchhikersguidetothefuture.com`). Script only loads when set.
+- **`NEXT_PUBLIC_CALENDLY_URL`** – (Optional) Calendly link or embed URL for the Network page “Book Intro Call”.
 
-To learn more about Next.js, take a look at the following resources:
+## Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/network`, `/waystations`.
+- **`content/guides/`** – MDX guides (frontmatter: `title`, `excerpt`, `date`, `hook`, `topic`).
+- **`content/essays/`** – MDX essays (frontmatter: `title`, `excerpt`, `date`).
+- **`content/podcast/episodes.json`** – Episode metadata (number, title, duration, date, type, embedUrl, description, showNotes, transcriptUrl).
+- **`components/`** – Header, Footer, EmailCapture.
+- **`lib/content.ts`** – Guide/essay slug listing and frontmatter + content loading.
+- **`lib/podcast.ts`** – Episode listing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Build
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Static pages for all guides and essays are generated at build time. Set env vars before building if you want Plausible in production.
