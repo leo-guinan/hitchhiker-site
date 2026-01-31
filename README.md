@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000).
 Copy `.env.example` to `.env.local` and set:
 
 - **`NEXT_PUBLIC_SUBSTACK_URL`** – Substack publication URL (e.g. `https://yoursubstack.substack.com`). Used by email capture to redirect after signup.
-- **`NEXT_PUBLIC_PLAUSIBLE_DOMAIN`** – Plausible analytics domain (e.g. `hitchhikersguidetothefuture.com`). Script only loads when set.
+- **`NEXT_PUBLIC_FATHOM_SITE_ID`** – Fathom Analytics site ID (from your Fathom dashboard). Script only loads when set.
 - **`NEXT_PUBLIC_CALENDLY_URL`** – (Optional) Calendly link or embed URL for the Network page “Book Intro Call”.
 
 ## Structure
@@ -42,4 +42,4 @@ Copy `.env.example` to `.env.local` and set:
 npm run build
 ```
 
-Static pages for all guides and essays are generated at build time. Set env vars before building if you want Plausible in production.
+Static pages for all guides and essays are generated at build time. Set env vars before building if you want Fathom in production.

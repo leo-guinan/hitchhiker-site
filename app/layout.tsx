@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Fathom } from "@/components/Fathom";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -35,8 +35,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-
   return (
     <html lang="en">
       <body
@@ -45,14 +43,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-[calc(100vh-8rem)]">{children}</main>
         <Footer />
-        {plausibleDomain && (
-          <Script
-            defer
-            data-domain={plausibleDomain}
-            src="https://plausible.io/js/script.js"
-            strategy="afterInteractive"
-          />
-        )}
+        {process.env.NEXT_PUBLIC_FATHOM_SITE_ID && <Fathom />}
       </body>
     </html>
   );
