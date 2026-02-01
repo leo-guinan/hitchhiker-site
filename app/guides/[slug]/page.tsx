@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getGuideBySlug, getGuideSlugs } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 import { EmailCapture } from "@/components/EmailCapture";
+import { ShareBar } from "@/components/ShareBar";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,6 +29,7 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
 
   const { frontmatter, content, readingTime } = guide;
+  const canonicalUrl = `${siteUrl}/guides/${slug}`;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
@@ -42,20 +45,7 @@ export default async function GuidePage({ params }: Props) {
         <p className="mt-4 text-sm text-[var(--muted-foreground)]">
           By Leo Guinan · {frontmatter.date} · {readingTime}
         </p>
-        <div className="mt-6 flex gap-4">
-          <Link
-            href="/course"
-            className="text-sm font-medium text-[var(--foreground)] hover:underline"
-          >
-            Download PDF
-          </Link>
-          <Link
-            href="/guides"
-            className="text-sm font-medium text-[var(--foreground)] hover:underline"
-          >
-            Share
-          </Link>
-        </div>
+        <ShareBar url={canonicalUrl} title={frontmatter.title} />
       </header>
 
       <div className="prose prose-neutral mt-12 dark:prose-invert max-w-none">

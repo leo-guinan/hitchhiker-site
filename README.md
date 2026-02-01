@@ -22,19 +22,25 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Copy `.env.example` to `.env.local` and set:
 
-- **`NEXT_PUBLIC_SUBSTACK_URL`** – Substack publication URL (e.g. `https://yoursubstack.substack.com`). Used by email capture to redirect after signup.
-- **`NEXT_PUBLIC_FATHOM_SITE_ID`** – Fathom Analytics site ID (from your Fathom dashboard). Script only loads when set.
-- **`NEXT_PUBLIC_CALENDLY_URL`** – (Optional) Calendly link or embed URL for the Network page “Book Intro Call”.
+- **`NEXT_PUBLIC_SITE_URL`** – Base URL for canonical and share links (e.g. `https://hitchhikersguidetothefuture.com`).
+- **`CONVERTKIT_API_KEY`** – ConvertKit API key (Settings → Advanced). Used by `/api/subscribe` to add subscribers.
+- **`CONVERTKIT_FORM_ID_COURSE`** – ConvertKit form ID for the 5-Day Course signup.
+- **`CONVERTKIT_FORM_ID_NEWSLETTER`** – (Optional) ConvertKit form ID for “Subscribe for updates”. Omit to return 503 for newsletter list.
+- **`NEXT_PUBLIC_SUBSTACK_URL`**, **`NEXT_PUBLIC_TWITTER_URL`**, **`NEXT_PUBLIC_LINKEDIN_URL`**, **`NEXT_PUBLIC_GITHUB_URL`**, **`NEXT_PUBLIC_SPEAKING_URL`** – Footer “Connect” and “Speaking” links. Leave empty to hide.
+- **`NEXT_PUBLIC_APPLE_PODCASTS_URL`**, **`NEXT_PUBLIC_SPOTIFY_URL`**, **`NEXT_PUBLIC_PODCAST_RSS_URL`** – Podcast subscribe links. Leave empty to show “Subscribe links coming soon”.
+- **`NEXT_PUBLIC_FATHOM_SITE_ID`** – Fathom Analytics site ID. Script only loads when set.
+- **`NEXT_PUBLIC_CALENDLY_URL`** – (Optional) Calendly for Network page “Book Intro Call”.
 
 ## Structure
 
-- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/network`, `/waystations`.
+- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/network`, `/waystations`, `/api/subscribe`.
 - **`content/guides/`** – MDX guides (frontmatter: `title`, `excerpt`, `date`, `hook`, `topic`).
 - **`content/essays/`** – MDX essays (frontmatter: `title`, `excerpt`, `date`).
 - **`content/podcast/episodes.json`** – Episode metadata (number, title, duration, date, type, embedUrl, description, showNotes, transcriptUrl).
-- **`components/`** – Header, Footer, EmailCapture.
+- **`components/`** – Header, Footer, EmailCapture, ShareBar, Fathom.
 - **`lib/content.ts`** – Guide/essay slug listing and frontmatter + content loading.
 - **`lib/podcast.ts`** – Episode listing.
+- **`lib/site.ts`** – Site config (social URLs, podcast URLs, siteUrl from env).
 
 ## Build
 

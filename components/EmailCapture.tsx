@@ -27,16 +27,24 @@ export function EmailCapture({
     : "Get new guides and episodes in your inbox.";
   const buttonLabel = isCourse ? "Start Day 1" : "Subscribe";
   const placeholder = "you@example.com";
+  const list = isCourse ? "course" : "newsletter";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
     setStatus("loading");
     try {
-      // Substack embed or API: for MVP we redirect to Substack signup
-      const substackUrl = process.env.NEXT_PUBLIC_SUBSTACK_URL || "https://example.substack.com";
-      window.location.href = `${substackUrl}/subscribe?email=${encodeURIComponent(email)}`;
-      setStatus("success");
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), list }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -51,28 +59,36 @@ export function EmailCapture({
         {title}
       </h2>
       <p className="mb-6 text-sm text-[var(--muted)]">{description}</p>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={placeholder}
-          required
-          disabled={status === "loading"}
-          className="min-w-0 flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] disabled:opacity-50"
-        />
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="rounded-md bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90 disabled:opacity-50"
-        >
-          {status === "loading" ? "..." : buttonLabel}
-        </button>
-      </form>
-      {status === "error" && (
-        <p className="mt-2 text-sm text-red-600">
-          Something went wrong. Try again or subscribe on Substack directly.
+      {status === "success" ? (
+        <p className="text-sm font-medium text-[var(--foreground)]">
+          Check your inbox. We&apos;ve sent the first step.
         </p>
+      ) : (
+        <>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={placeholder}
+              required
+              disabled={status === "loading"}
+              className="min-w-0 flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)] disabled:opacity-50"
+            />
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="rounded-md bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90 disabled:opacity-50"
+            >
+              {status === "loading" ? "..." : buttonLabel}
+            </button>
+          </form>
+          {status === "error" && (
+            <p className="mt-2 text-sm text-red-600">
+              Something went wrong. Please try again.
+            </p>
+          )}
+        </>
       )}
     </section>
   );

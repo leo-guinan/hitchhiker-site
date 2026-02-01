@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getEpisodes } from "@/lib/podcast";
+import { podcast } from "@/lib/site";
 
 export const metadata = {
   title: "Podcast | The Hitchhiker's Guide to the Future",
@@ -8,10 +9,10 @@ export const metadata = {
 };
 
 const subscribeLinks = [
-  { label: "Apple Podcasts", href: "#" },
-  { label: "Spotify", href: "#" },
-  { label: "RSS", href: "#" },
-];
+  { label: "Apple Podcasts", href: podcast.applePodcasts },
+  { label: "Spotify", href: podcast.spotify },
+  { label: "RSS", href: podcast.rss },
+].filter(({ href }) => href);
 
 export default function PodcastPage() {
   const episodes = getEpisodes();
@@ -30,15 +31,23 @@ export default function PodcastPage() {
           Hosted by Leo Guinan
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          {subscribeLinks.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="inline-flex h-10 items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--border)]/50"
-            >
-              {label}
-            </a>
-          ))}
+          {subscribeLinks.length > 0 ? (
+            subscribeLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 items-center justify-center rounded-md border border-[var(--border)] bg-[var(--card)] px-4 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--border)]/50"
+              >
+                {label}
+              </a>
+            ))
+          ) : (
+            <p className="text-sm text-[var(--muted)]">
+              Subscribe links coming soon
+            </p>
+          )}
         </div>
       </header>
 

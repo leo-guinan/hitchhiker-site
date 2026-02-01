@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { social } from "@/lib/site";
 
 const content = [
   { href: "/guides", label: "Guides" },
@@ -11,15 +12,18 @@ const work = [
   { href: "/network", label: "Consulting Agency" },
   { href: "/course", label: "5-Day Course" },
   { href: "/course", label: "Workshop" },
-  { href: "#", label: "Speaking" },
+  {
+    href: social.speaking || "/network#book",
+    label: "Speaking",
+  },
 ];
 
-const connect = [
-  { href: "#", label: "Substack" },
-  { href: "#", label: "Twitter" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "GitHub (MetaSPN)" },
-];
+const connectLinks = [
+  { href: social.substack, label: "Substack" },
+  { href: social.twitter, label: "Twitter" },
+  { href: social.linkedIn, label: "LinkedIn" },
+  { href: social.github, label: "GitHub (MetaSPN)" },
+].filter(({ href }) => href);
 
 const about = [
   { href: "/hitchhiker", label: "What is a Hitchhiker?" },
@@ -71,16 +75,24 @@ export function Footer() {
               Connect
             </h3>
             <ul className="space-y-2">
-              {connect.map(({ href, label }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-sm text-[var(--foreground)] hover:underline"
-                  >
-                    {label}
-                  </Link>
+              {connectLinks.length > 0 ? (
+                connectLinks.map(({ href, label }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-[var(--foreground)] hover:underline"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))
+              ) : (
+                <li className="text-sm text-[var(--muted-foreground)]">
+                  Links coming soon
                 </li>
-              ))}
+              )}
             </ul>
           </div>
           <div>
