@@ -16,7 +16,7 @@ export function Header() {
           href="/"
           className="text-lg font-semibold tracking-tight text-[var(--foreground)]"
         >
-          HGTTF
+          🧭 The Hitchhiker&apos;s Guide to the Future
         </Link>
         <nav className="flex flex-1 items-center justify-end gap-4 sm:gap-6" aria-label="Main">
           {nav.map(({ href, label }) => (

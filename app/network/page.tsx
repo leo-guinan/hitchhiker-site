@@ -88,6 +88,9 @@ export default function NetworkPage() {
           <li>→ Seasonal engagements with clean exits</li>
           <li>→ Observable outcomes—or you stop paying</li>
         </ul>
+        <p className="mt-4 text-sm text-[var(--muted)]">
+          Built on MetaSPN infrastructure—observable games, bounded commitments, seasonal engagements.
+        </p>
       </section>
 
       <section className="mt-12">

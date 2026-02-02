@@ -43,7 +43,7 @@ export default function AboutPage() {
         </h2>
         <ul className="mt-4 space-y-2 text-[var(--muted)] leading-relaxed">
           <li>→ Observable games for coordination</li>
-          <li>→ Infrastructure for fluid identity</li>
+          <li>→ Infrastructure for fluid identity (MetaSPN)</li>
           <li>→ A network for people who&apos;ve crossed</li>
           <li>→ The repricing thesis—what gets valued when the old systems break</li>
         </ul>

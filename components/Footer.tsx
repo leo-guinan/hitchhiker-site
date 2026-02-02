@@ -114,7 +114,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-[var(--border)] pt-8 text-center text-sm text-[var(--muted)]">
-          © 2026 MetaSPN · Built for people who&apos;ve crossed the threshold
+          © 2026 The Hitchhiker&apos;s Guide to the Future · Built on MetaSPN
         </div>
       </div>
     </footer>

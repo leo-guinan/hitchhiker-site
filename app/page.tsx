@@ -7,24 +7,30 @@ import { getAllEssays } from "@/lib/content";
 const valueStreams = [
   {
     title: "The Guides",
-    description:
-      "Deep dives on the future of specific domains. Where things are heading and why. For people who need to see the map.",
+    body: "Deep dives on the future of specific domains. Where things are heading and why.",
+    audience: "For people who need to see the map.",
     href: "/guides",
     icon: "📖",
+    progressionLabel: "Learn",
+    accentClass: "border-l-4 border-l-amber-500",
   },
   {
     title: "The Podcast",
-    description:
-      "Conversations with people who've crossed the threshold. Pattern recognition across domains. For people who think in systems.",
+    body: "Conversations with people who've crossed the threshold. Pattern recognition across domains.",
+    audience: "For people who think in systems.",
     href: "/podcast",
     icon: "🎙️",
+    progressionLabel: "Connect",
+    accentClass: "border-l-4 border-l-teal-500",
   },
   {
     title: "The Network",
-    description:
-      "Infrastructure for post-ego-death coordination. Games, roles, seasons. The future of work. For people ready to build.",
+    body: "Infrastructure for post-ego-death coordination. Games, roles, seasons. The future of work.",
+    audience: "For people ready to build.",
     href: "/network",
-    icon: "🏗️",
+    icon: "🔗",
+    progressionLabel: "Build",
+    accentClass: "border-l-4 border-l-emerald-500",
   },
 ];
 
@@ -45,21 +51,21 @@ export default function HomePage() {
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[var(--muted)] sm:text-xl">
           You&apos;ve crossed the threshold. You can see patterns others miss. You
-          know the old coordination infrastructure is breaking.
+          know the old infrastructure is breaking.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-[var(--muted)] sm:text-xl">
           But you can&apos;t find your people. And you can&apos;t coordinate with
           the ones you do find.
         </p>
-        <p className="mt-6 text-xl font-medium text-[var(--foreground)]">
-          This is the infrastructure for people who&apos;ve crossed.
+        <p className="mt-6 text-xl font-bold text-[var(--foreground)]">
+          This is infrastructure for people who&apos;ve crossed.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/hitchhiker"
             className="inline-flex h-12 items-center justify-center rounded-md bg-[var(--accent)] px-6 text-base font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90"
           >
-            Start Here
+            What is a Hitchhiker?
           </Link>
           <a
             href="#join"
@@ -74,20 +80,26 @@ export default function HomePage() {
       <section className="border-t border-[var(--border)] bg-[var(--card)]">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <div className="grid gap-8 md:grid-cols-3">
-            {valueStreams.map(({ title, description, href, icon }) => (
+            {valueStreams.map(({ title, body, audience, href, icon, progressionLabel, accentClass }) => (
               <Link
                 key={href}
                 href={href}
-                className="group rounded-xl border border-[var(--border)] bg-[var(--background)] p-6 transition-colors hover:border-[var(--muted)] hover:bg-[var(--background)]/80"
+                className={`group rounded-xl border border-[var(--border)] bg-[var(--background)] p-6 transition-colors hover:border-[var(--muted)] hover:bg-[var(--background)]/80 ${accentClass}`}
               >
-                <span className="text-2xl" aria-hidden>
+                <span className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
+                  {progressionLabel}
+                </span>
+                <span className="mt-2 block text-2xl" aria-hidden>
                   {icon}
                 </span>
                 <h2 className="mt-4 text-xl font-semibold text-[var(--foreground)] group-hover:underline">
                   {title}
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
-                  {description}
+                  {body}{" "}
+                  <span className="font-semibold text-[var(--foreground)]">
+                    {audience}
+                  </span>
                 </p>
                 <span className="mt-4 inline-block text-sm font-medium text-[var(--foreground)] group-hover:underline">
                   → {title === "The Guides" ? "Go to Guides" : title === "The Podcast" ? "Go to Podcast" : "Go to Network"}
