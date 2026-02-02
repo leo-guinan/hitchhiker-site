@@ -3,6 +3,7 @@ import { social } from "@/lib/site";
 
 const content = [
   { href: "/guides", label: "Guides" },
+  { href: "/deep-dives", label: "Deep Dives" },
   { href: "/podcast", label: "Podcast" },
   { href: "/essays", label: "Essays" },
   { href: "/waystations", label: "Waystations" },

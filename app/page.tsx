@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { EmailCapture } from "@/components/EmailCapture";
-import { getAllGuides } from "@/lib/content";
+import { getAllGuides, getAllDeepDives } from "@/lib/content";
 import { getEpisodes } from "@/lib/podcast";
 import { getAllEssays } from "@/lib/content";
 
@@ -38,9 +38,11 @@ export default function HomePage() {
   const guides = getAllGuides();
   const episodes = getEpisodes();
   const essays = getAllEssays();
+  const deepDives = getAllDeepDives();
   const latestGuide = guides[0];
   const latestEpisode = episodes[0];
   const latestEssay = essays[0];
+  const latestDeepDive = deepDives[0];
 
   return (
     <div>
@@ -229,6 +231,55 @@ export default function HomePage() {
                   className="mt-4 inline-block text-sm font-medium text-[var(--foreground)] hover:underline"
                 >
                   Go to essays →
+                </Link>
+              </>
+            )}
+          </article>
+          <article className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6">
+            <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
+              Latest Deep Dive
+            </p>
+            {latestDeepDive ? (
+              <>
+                <Link
+                  href={`/deep-dives/${latestDeepDive.slug}`}
+                  className="mt-2 block text-lg font-semibold text-[var(--foreground)] hover:underline"
+                >
+                  {latestDeepDive.frontmatter.title}
+                </Link>
+                <p className="mt-2 text-sm text-[var(--muted)] line-clamp-2">
+                  {latestDeepDive.frontmatter.excerpt}
+                </p>
+                <div className="mt-4 flex gap-4">
+                  <Link
+                    href={`/deep-dives/${latestDeepDive.slug}`}
+                    className="text-sm font-medium text-[var(--foreground)] hover:underline"
+                  >
+                    Read online →
+                  </Link>
+                  <a
+                    href={`/deep-dives/${latestDeepDive.slug}.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] hover:underline"
+                  >
+                    Download PDF
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <span className="mt-2 block text-lg font-semibold text-[var(--muted)]">
+                  Coming soon
+                </span>
+                <p className="mt-2 text-sm text-[var(--muted)]">
+                  Long-form essays on systems and structures.
+                </p>
+                <Link
+                  href="/deep-dives"
+                  className="mt-4 inline-block text-sm font-medium text-[var(--foreground)] hover:underline"
+                >
+                  Go to deep dives →
                 </Link>
               </>
             )}

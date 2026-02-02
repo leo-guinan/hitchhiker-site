@@ -19,6 +19,12 @@ export type EssayFrontmatter = {
   date: string;
 };
 
+export type DeepDiveFrontmatter = {
+  title: string;
+  excerpt: string;
+  date: string;
+};
+
 export function getGuideSlugs(): string[] {
   const dir = path.join(contentDir, "guides");
   if (!fs.existsSync(dir)) return [];
@@ -123,6 +129,63 @@ export function getAllEssays(): Array<{
     .filter(Boolean) as Array<{
     slug: string;
     frontmatter: EssayFrontmatter;
+    readingTime: string;
+  }>;
+  list.sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
+  );
+  return list;
+}
+
+export function getDeepDiveSlugs(): string[] {
+  const dir = path.join(contentDir, "deep-dives");
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".mdx"))
+    .map((f) => f.replace(/\.mdx$/, ""));
+}
+
+export function getDeepDiveBySlug(slug: string): {
+  slug: string;
+  frontmatter: DeepDiveFrontmatter;
+  content: string;
+  readingTime: string;
+} | null {
+  const fullPath = path.join(contentDir, "deep-dives", `${slug}.mdx`);
+  if (!fs.existsSync(fullPath)) return null;
+  const raw = fs.readFileSync(fullPath, "utf-8");
+  const { data, content } = matter(raw);
+  const stats = readingTime(content);
+  return {
+    slug,
+    frontmatter: data as DeepDiveFrontmatter,
+    content,
+    readingTime: stats.text,
+  };
+}
+
+export function getAllDeepDives(): Array<{
+  slug: string;
+  frontmatter: DeepDiveFrontmatter;
+  readingTime: string;
+}> {
+  const slugs = getDeepDiveSlugs();
+  const list = slugs
+    .map((slug) => {
+      const deepDive = getDeepDiveBySlug(slug);
+      if (!deepDive) return null;
+      return {
+        slug: deepDive.slug,
+        frontmatter: deepDive.frontmatter,
+        readingTime: deepDive.readingTime,
+      };
+    })
+    .filter(Boolean) as Array<{
+    slug: string;
+    frontmatter: DeepDiveFrontmatter;
     readingTime: string;
   }>;
   list.sort(

@@ -33,8 +33,9 @@ Copy `.env.example` to `.env.local` and set:
 
 ## Structure
 
-- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/network`, `/waystations`, `/api/subscribe`.
+- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/deep-dives`, `/deep-dives/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/network`, `/waystations`, `/api/subscribe`.
 - **`content/guides/`** – MDX guides (frontmatter: `title`, `excerpt`, `date`, `hook`, `topic`).
+- **`content/deep-dives/`** – MDX deep dives (frontmatter: `title`, `excerpt`, `date`). PDFs generated via `npm run build:pdfs`.
 - **`content/essays/`** – MDX essays (frontmatter: `title`, `excerpt`, `date`).
 - **`content/podcast/episodes.json`** – Episode metadata (number, title, duration, date, type, embedUrl, description, showNotes, transcriptUrl).
 - **`components/`** – Header, Footer, EmailCapture, ShareBar, Fathom.
@@ -48,4 +49,14 @@ Copy `.env.example` to `.env.local` and set:
 npm run build
 ```
 
-Static pages for all guides and essays are generated at build time. Set env vars before building if you want Fathom in production.
+Static pages for all guides, essays, and deep dives are generated at build time. Set env vars before building if you want Fathom in production.
+
+### Deep Dive PDFs
+
+To generate PDFs for deep dives (required for download links to work):
+
+```bash
+npm run build:pdfs
+```
+
+This reads `content/deep-dives/*.mdx` and outputs PDFs to `public/deep-dives/`. Run after adding or updating deep dives.

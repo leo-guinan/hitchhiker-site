@@ -3,6 +3,7 @@ import Image from "next/image";
 
 const nav = [
   { href: "/guides", label: "Guides" },
+  { href: "/deep-dives", label: "Deep Dives" },
   { href: "/podcast", label: "Podcast" },
   { href: "/network", label: "Network" },
   { href: "/course", label: "Course" },

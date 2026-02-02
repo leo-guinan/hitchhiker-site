@@ -1,0 +1,62 @@
+[
+  {
+    "category": "Systems & Incentives (Goodhart, Campbell, Metrics)",
+    "prompt": "I just read an essay describing the \"Validation Distance Problem,\" where systems reward legible, scalable signals instead of locally true knowledge as evaluation moves farther from reality.\n\nConnect this concept to ideas like Goodhart's Law, Campbell's Law, or metric gaming. Where does validation distance add explanatory power beyond those frameworks?",
+    "whyItWorks": "This lets people see your concept as a generalization, not a rebrand."
+  },
+  {
+    "category": "Economics & Markets (Price Signals, Information Asymmetry)",
+    "prompt": "Explain the Validation Distance Problem using economic language.\n\nHow does validation distance relate to information asymmetry, price signals, market efficiency, and the difference between local knowledge and aggregated markets?",
+    "whyItWorks": "This snaps directly into Hayek, Akerlof, and mechanism design without you having to name-drop."
+  },
+  {
+    "category": "Software Engineering & Dev Culture",
+    "prompt": "Apply the Validation Distance Problem to software engineering.\n\nHow does it explain differences between visible productivity (commits, dashboards, OKRs) and real system quality (resilience, maintainability, judgment under failure)?",
+    "whyItWorks": "Developers feel this one immediately. It validates lived experience."
+  },
+  {
+    "category": "Science & Research (Peer Review, Citations, Replication)",
+    "prompt": "Map the Validation Distance Problem onto modern scientific research.\n\nHow does increasing distance between experiments, peer review, citations, and funding decisions affect truth-seeking versus legibility?",
+    "whyItWorks": "This naturally connects to replication crises without sounding ideological."
+  },
+  {
+    "category": "Organizational Behavior & Management",
+    "prompt": "Use the Validation Distance Problem to analyze how large organizations evaluate employees.\n\nWhere do performance reviews, promotions, and titles diverge from actual contribution, and why does this gap grow with scale?",
+    "whyItWorks": "Middle managers and ICs both see themselves in this."
+  },
+  {
+    "category": "Social Media & Status Games",
+    "prompt": "Connect the Validation Distance Problem to social media status dynamics.\n\nWhy do general, confident statements outperform precise, reality-bound ones as audiences scale?",
+    "whyItWorks": "This reframes online discourse as structural, not moral."
+  },
+  {
+    "category": "Machine Learning & AI Evaluation",
+    "prompt": "Explain the Validation Distance Problem in the context of AI systems.\n\nHow does it relate to benchmark overfitting, proxy metrics, and the gap between model performance in labs versus real-world deployment?",
+    "whyItWorks": "This bridges cleanly into evals, alignment, and deployment gaps."
+  },
+  {
+    "category": "Philosophy & Epistemology",
+    "prompt": "Relate the Validation Distance Problem to epistemology.\n\nHow does it interact with ideas like tacit knowledge, situated cognition, or the limits of formal systems?",
+    "whyItWorks": "This is where Polanyi, Wittgenstein, and embodied knowledge quietly enter."
+  },
+  {
+    "category": "Complexity & Systems Theory",
+    "prompt": "Connect the Validation Distance Problem to complex systems theory.\n\nHow does validation distance contribute to complexity inflation, abstraction layering, and loss of signal fidelity in large systems?",
+    "whyItWorks": "This grounds your \"complexity inflation\" concept in familiar dynamics."
+  },
+  {
+    "category": "Personal Experience Reflection (High-Signal Prompt)",
+    "prompt": "Using the Validation Distance Problem, analyze a situation in my own life or work where being good at something did not translate into being recognized for it.\n\nWhat signals were rewarded instead, and why?",
+    "whyItWorks": "This turns theory into felt truth, which is how ideas stick."
+  },
+  {
+    "category": "Design & Solutions Thinking",
+    "prompt": "Given the Validation Distance Problem, what design principles could reduce validation distance in systems for work, learning, or collaboration?",
+    "whyItWorks": "This primes readers to look for constructive extensions instead of critique-only."
+  },
+  {
+    "category": "Comparative Framework Prompt (Power Move)",
+    "prompt": "Compare the Validation Distance Problem with other frameworks I already know (e.g., principal–agent problems, bureaucracy, elite overproduction, or signaling theory).\n\nWhere does it overlap, and where is it meaningfully different?",
+    "whyItWorks": "This invites synthesis instead of competition."
+  }
+]
