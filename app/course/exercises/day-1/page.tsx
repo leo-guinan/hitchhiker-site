@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExerciseSubmitForm } from "@/components/ExerciseSubmitForm";
 
 export const metadata = {
   title: "Day 1: Map Your Identity Contradictions | 5-Day Course",
@@ -74,6 +75,13 @@ export default function Day1ExercisePage() {
           <li>Honesty about the contradiction, not resolution of it</li>
         </ul>
       </div>
+
+      <section className="mt-16">
+        <ExerciseSubmitForm
+          exerciseDay={1}
+          exerciseTitle="Map Your Identity Contradictions"
+        />
+      </section>
 
       <footer className="mt-16 border-t border-[var(--border)] pt-8">
         <Link

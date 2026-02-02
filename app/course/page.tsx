@@ -205,6 +205,12 @@ export default function CoursePage() {
           We don&apos;t want signups—we want Hitchhikers who did the work. Show
           your work, get the discount.
         </p>
+        <Link
+          href="/course/dashboard"
+          className="mt-4 inline-block text-sm font-medium text-[var(--foreground)] hover:underline"
+        >
+          View submission metrics →
+        </Link>
       </section>
 
       <section className="mt-16 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-8">

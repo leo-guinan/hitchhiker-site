@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExerciseSubmitForm } from "@/components/ExerciseSubmitForm";
 
 export const metadata = {
   title: "Day 2: Audit the Games You're Currently Playing | 5-Day Course",
@@ -79,6 +80,13 @@ export default function Day2ExercisePage() {
           <li>Beginning to think about what real games you&apos;d rather play</li>
         </ul>
       </div>
+
+      <section className="mt-16">
+        <ExerciseSubmitForm
+          exerciseDay={2}
+          exerciseTitle="Audit the Games You're Currently Playing"
+        />
+      </section>
 
       <footer className="mt-16 border-t border-[var(--border)] pt-8">
         <Link

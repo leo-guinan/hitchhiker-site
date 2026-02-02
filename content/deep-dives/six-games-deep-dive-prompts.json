@@ -1,42 +1,42 @@
 [
   {
-    "category": "Personal Mapping",
-    "prompt": "Map my current work or creative life onto the Six Games. Which game am I actually playing versus the one I think I am?"
+    "category": "Game Identification",
+    "prompt": "Which of the Six Games am I actually playing right now—and which one am I being evaluated on?"
   },
   {
-    "category": "Platform Analysis",
-    "prompt": "Analyze a platform I use (Twitter, YouTube, GitHub, LinkedIn) through the Six Games framework. Which games does it reward or suppress?"
+    "category": "Season Diagnosis",
+    "prompt": "Based on what I consume and what frustrates me, which season am I in?"
   },
   {
-    "category": "Career Reflection",
-    "prompt": "Use the Six Games to explain a past career frustration or success. Where was the mismatch?"
+    "category": "Progression Check",
+    "prompt": "What game am I trying to skip—and why?"
   },
   {
-    "category": "Creator Case Study",
-    "prompt": "Take a creator I admire and analyze which game they are primarily playing and why it works for them."
+    "category": "G3 Ego-Death Signal",
+    "prompt": "Where do I understand more than I know how to act on?"
   },
   {
-    "category": "Development Planning",
-    "prompt": "Based on my current phase, which game should I focus on next and which should I consciously deprioritize?"
+    "category": "G5 Attractor Detection",
+    "prompt": "What opportunities repel me even though they \"work\"?"
   },
   {
-    "category": "Failure Mode Detection",
-    "prompt": "Identify common failure modes in my current game and how to avoid them."
+    "category": "Network Readiness",
+    "prompt": "What values must be aligned before I join or build a network?"
   },
   {
-    "category": "Team and Org Design",
-    "prompt": "Apply the Six Games to a team or organization. Which games are mixed improperly?"
+    "category": "Platform Audit",
+    "prompt": "How does a platform I use fragment attention across the Six Games?"
   },
   {
-    "category": "Game Transitions",
-    "prompt": "What signals indicate it's time to move from one game to the next?"
+    "category": "Focus Strategy",
+    "prompt": "If I committed to playing one game well for a single season, which should it be?"
   },
   {
-    "category": "Comparison with Other Frameworks",
-    "prompt": "Compare the Six Games with other frameworks I know (Maslow, skill ladders, hero's journey). Where does it differ?"
+    "category": "Misalignment Reflection",
+    "prompt": "Where has playing the wrong game caused burnout or stagnation?"
   },
   {
-    "category": "Long-Term Strategy",
-    "prompt": "Design a 3–5 year arc using the Six Games that aligns with my goals and constraints."
+    "category": "Transition Planning",
+    "prompt": "What would a clean seasonal transition to the next game look like?"
   }
 ]

@@ -23,7 +23,8 @@ Open [http://localhost:3000](http://localhost:3000).
 Copy `.env.example` to `.env.local` and set:
 
 - **`NEXT_PUBLIC_SITE_URL`** – Base URL for canonical and share links (e.g. `https://hitchhikersguidetothefuture.com`).
-- **`CONVERTKIT_API_KEY`** – ConvertKit API key (Settings → Advanced). Used by `/api/subscribe` to add subscribers.
+- **`DATABASE_URL`** – Neon Postgres connection string. Add via [Vercel Marketplace → Neon](https://vercel.com/marketplace/neon) or from [neon.tech](https://neon.tech). Required for exercise submissions.
+- **`CONVERTKIT_API_KEY`** – Kit V4 API key (app.kit.com → Developer). Used by `/api/subscribe` to add subscribers.
 - **`CONVERTKIT_FORM_ID_COURSE`** – ConvertKit form ID for the 5-Day Course signup.
 - **`CONVERTKIT_FORM_ID_NEWSLETTER`** – (Optional) ConvertKit form ID for “Subscribe for updates”. Omit to return 503 for newsletter list.
 - **`NEXT_PUBLIC_SUBSTACK_URL`**, **`NEXT_PUBLIC_TWITTER_URL`**, **`NEXT_PUBLIC_LINKEDIN_URL`**, **`NEXT_PUBLIC_GITHUB_URL`**, **`NEXT_PUBLIC_SPEAKING_URL`** – Footer “Connect” and “Speaking” links. Leave empty to hide.
@@ -33,7 +34,7 @@ Copy `.env.example` to `.env.local` and set:
 
 ## Structure
 
-- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/deep-dives`, `/deep-dives/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/course/exercises`, `/course/exercises/day-[1-5]`, `/network`, `/waystations`, `/api/subscribe`.
+- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/deep-dives`, `/deep-dives/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/course/dashboard`, `/course/exercises`, `/course/exercises/day-[1-5]`, `/network`, `/waystations`, `/api/subscribe`, `/api/submit-exercise`, `/api/dashboard-stats`.
 - **`content/guides/`** – MDX guides (frontmatter: `title`, `excerpt`, `date`, `hook`, `topic`).
 - **`content/deep-dives/`** – MDX deep dives (frontmatter: `title`, `excerpt`, `date`). PDFs generated via `npm run build:pdfs`.
 - **`content/essays/`** – MDX essays (frontmatter: `title`, `excerpt`, `date`).
@@ -60,3 +61,17 @@ npm run build:pdfs
 ```
 
 This reads `content/deep-dives/*.mdx` and outputs PDFs to `public/deep-dives/`. Run after adding or updating deep dives.
+
+### Database (Exercise Submissions)
+
+Exercise submissions are stored in Neon Postgres. Set up:
+
+1. Add Neon via [Vercel Marketplace](https://vercel.com/marketplace/neon) or create a project at [neon.tech](https://neon.tech).
+2. Add `DATABASE_URL` to `.env.local` (or let Vercel inject it).
+3. Initialize the schema:
+
+```bash
+npm run db:init
+```
+
+This creates the `submissions` table. Run once per environment (local, production).
