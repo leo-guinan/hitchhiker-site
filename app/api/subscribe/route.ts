@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-const CONVERTKIT_API = "https://api.convertkit.com/v3";
+// Kit/ConvertKit V4 API - V4 keys are NOT compatible with V3 (api.convertkit.com)
+const KIT_API = "https://api.kit.com/v4";
 
 type List = "course" | "newsletter";
 
@@ -47,19 +48,43 @@ export async function POST(request: Request) {
     );
   }
 
+  const headers = {
+    "Content-Type": "application/json",
+    "X-Kit-Api-Key": apiKey,
+  };
+
   try {
-    const res = await fetch(`${CONVERTKIT_API}/forms/${formId}/subscribe`, {
+    // V4: Create subscriber first (upsert), then add to form.
+    // Subscriber must exist before adding to form. Create does upsert.
+    const createRes = await fetch(`${KIT_API}/subscribers`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({
-        api_key: apiKey,
-        email,
+        email_address: email,
+        state: "active",
       }),
     });
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.error("ConvertKit subscribe error:", res.status, text);
+    if (!createRes.ok) {
+      const text = await createRes.text();
+      console.error("ConvertKit create subscriber error:", createRes.status, text);
+      return NextResponse.json(
+        { error: "Subscription failed" },
+        { status: 502 }
+      );
+    }
+
+    const addRes = await fetch(`${KIT_API}/forms/${formId}/subscribers`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        email_address: email,
+      }),
+    });
+
+    if (!addRes.ok) {
+      const text = await addRes.text();
+      console.error("ConvertKit add to form error:", addRes.status, text);
       return NextResponse.json(
         { error: "Subscription failed" },
         { status: 502 }
