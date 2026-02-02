@@ -47,12 +47,11 @@ async function main() {
     const outputPath = path.join(outputDir, `${slug}.pdf`);
 
     const raw = fs.readFileSync(inputPath, "utf-8");
-    const { data, content } = matter(raw);
-    const fullContent = `# ${data.title}\n\n${content}`;
+    const { content } = matter(raw);
 
     try {
       await mdToPdf(
-        { content: fullContent },
+        { content },
         {
           dest: outputPath,
           pdf_options: {

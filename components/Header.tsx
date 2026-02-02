@@ -23,7 +23,7 @@ export function Header() {
             alt=""
             width={32}
             height={32}
-            className="h-8 w-8"
+            className="h-8 w-8 shrink-0 object-contain"
           />
           The Hitchhiker&apos;s Guide to the Future
         </Link>
