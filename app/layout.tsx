@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/logo.png",
+  },
   title: {
     default: "The Hitchhiker's Guide to the Future",
     template: "%s | The Hitchhiker's Guide to the Future",

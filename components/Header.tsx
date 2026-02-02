@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const nav = [
   { href: "/guides", label: "Guides" },
@@ -14,9 +15,16 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl flex-wrap items-center justify-between gap-4 px-4 sm:px-6">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-[var(--foreground)]"
+          className="flex items-center gap-2 text-lg font-semibold tracking-tight text-[var(--foreground)]"
         >
-          🧭 The Hitchhiker&apos;s Guide to the Future
+          <Image
+            src="/logo.png"
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
+          The Hitchhiker&apos;s Guide to the Future
         </Link>
         <nav className="flex flex-1 items-center justify-end gap-4 sm:gap-6" aria-label="Main">
           {nav.map(({ href, label }) => (
