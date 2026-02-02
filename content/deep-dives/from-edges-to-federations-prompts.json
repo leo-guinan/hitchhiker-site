@@ -1,0 +1,42 @@
+[
+  {
+    "category": "Personal Role Discovery",
+    "prompt": "Using Scout, Architect, and Guide, which role fits my current phase and why?"
+  },
+  {
+    "category": "Repricing Lens",
+    "prompt": "Identify something in my industry that feels overvalued and something undervalued. How would repricing change behavior?"
+  },
+  {
+    "category": "System Mapping",
+    "prompt": "Map a system I participate in onto platforms vs federated games. Where does it collapse roles?"
+  },
+  {
+    "category": "Edge Detection",
+    "prompt": "Where are small, high‑signal games forming at the edges of my field?"
+  },
+  {
+    "category": "Game Design",
+    "prompt": "Design a small observable game that could exist inside my community or work."
+  },
+  {
+    "category": "Transition Planning",
+    "prompt": "What would a clean season‑based transition look like for my next career move?"
+  },
+  {
+    "category": "Reputation Audit",
+    "prompt": "Rewrite my reputation as a stack of completed roles instead of a single identity."
+  },
+  {
+    "category": "Coordination Failure Analysis",
+    "prompt": "Analyze a coordination failure I've experienced using the concepts in this essay."
+  },
+  {
+    "category": "MetaSPN Interpretation",
+    "prompt": "Interpret the MetaSPN vision through frameworks I already know (markets, networks, open source)."
+  },
+  {
+    "category": "Commitment Prompt",
+    "prompt": "What is one role I could commit to playing for a single season to test this worldview?"
+  }
+]

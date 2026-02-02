@@ -1,0 +1,42 @@
+[
+  {
+    "category": "Role Audit",
+    "prompt": "Audit the roles I currently occupy. Which are behaviorally defined, and which rely on identity claims?"
+  },
+  {
+    "category": "Season Design",
+    "prompt": "Redesign one project or role in my life as a clear season with entry, scoring, and exit."
+  },
+  {
+    "category": "Exit Reflection",
+    "prompt": "Analyze a past exit that felt bad. What game design failures caused the toxicity?"
+  },
+  {
+    "category": "Org Design",
+    "prompt": "Apply non-capturing game design principles to a team or organization I know."
+  },
+  {
+    "category": "Career Strategy",
+    "prompt": "Design my next 2–3 roles as portable \"trading cards.\" What would they prove?"
+  },
+  {
+    "category": "Platform Analysis",
+    "prompt": "Analyze how a platform I use captures users by destroying clean exits."
+  },
+  {
+    "category": "Flickering Reframe",
+    "prompt": "Reframe my history of context-switching using the idea that flickering can be a feature."
+  },
+  {
+    "category": "Comparison Prompt",
+    "prompt": "Compare this framework to agile, modular careers, or portfolio work. What's new here?"
+  },
+  {
+    "category": "System Design",
+    "prompt": "Design a new game or community optimized for clean exits and role portability."
+  },
+  {
+    "category": "Meta-Reflection",
+    "prompt": "How would my sense of identity change if reputation were a stack of completed roles instead of a single label?"
+  }
+]

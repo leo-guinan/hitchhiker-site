@@ -1,0 +1,42 @@
+[
+  {
+    "category": "Personal Mapping",
+    "prompt": "Map my current work or creative life onto the Six Games. Which game am I actually playing versus the one I think I am?"
+  },
+  {
+    "category": "Platform Analysis",
+    "prompt": "Analyze a platform I use (Twitter, YouTube, GitHub, LinkedIn) through the Six Games framework. Which games does it reward or suppress?"
+  },
+  {
+    "category": "Career Reflection",
+    "prompt": "Use the Six Games to explain a past career frustration or success. Where was the mismatch?"
+  },
+  {
+    "category": "Creator Case Study",
+    "prompt": "Take a creator I admire and analyze which game they are primarily playing and why it works for them."
+  },
+  {
+    "category": "Development Planning",
+    "prompt": "Based on my current phase, which game should I focus on next and which should I consciously deprioritize?"
+  },
+  {
+    "category": "Failure Mode Detection",
+    "prompt": "Identify common failure modes in my current game and how to avoid them."
+  },
+  {
+    "category": "Team and Org Design",
+    "prompt": "Apply the Six Games to a team or organization. Which games are mixed improperly?"
+  },
+  {
+    "category": "Game Transitions",
+    "prompt": "What signals indicate it's time to move from one game to the next?"
+  },
+  {
+    "category": "Comparison with Other Frameworks",
+    "prompt": "Compare the Six Games with other frameworks I know (Maslow, skill ladders, hero's journey). Where does it differ?"
+  },
+  {
+    "category": "Long-Term Strategy",
+    "prompt": "Design a 3–5 year arc using the Six Games that aligns with my goals and constraints."
+  }
+]

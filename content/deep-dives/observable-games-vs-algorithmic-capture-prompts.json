@@ -1,0 +1,42 @@
+[
+  {
+    "category": "Sports, Competition, and Reputation",
+    "prompt": "Explain why sports produce durable reputation using the concept of observable games. What structural features prevent fake status?"
+  },
+  {
+    "category": "Social Media and Algorithmic Incentives",
+    "prompt": "Apply the observable games vs. algorithmic capture framework to modern social media platforms. Where exactly does capture occur?"
+  },
+  {
+    "category": "Open Source vs. Corporate Work",
+    "prompt": "Compare open source communities and corporate hierarchies using observable game theory. Why does one surface real contribution more reliably?"
+  },
+  {
+    "category": "Economics and Market Design",
+    "prompt": "Relate observable games to market design, price discovery, and mechanism design. How do games function as coordination infrastructure?"
+  },
+  {
+    "category": "Education and Credentialing",
+    "prompt": "Use this framework to analyze schools, grades, and credentials. Where do they function as real games, and where do they collapse into play?"
+  },
+  {
+    "category": "AI Benchmarks and Model Evaluation",
+    "prompt": "Apply observable games vs. algorithmic capture to AI benchmarks and evaluations. How do metrics become the game?"
+  },
+  {
+    "category": "Organizational Design",
+    "prompt": "Analyze performance reviews and OKRs through the lens of observable games. What breaks observability at scale?"
+  },
+  {
+    "category": "Personal Reflection",
+    "prompt": "Identify a system in my life that feels like a game but produces no real outcomes. Which elements of observability are missing?"
+  },
+  {
+    "category": "Game Design and Governance",
+    "prompt": "Design a new system or community using observable game principles that would resist algorithmic capture."
+  },
+  {
+    "category": "Comparing Frameworks",
+    "prompt": "Compare observable games with signaling theory, principal–agent problems, or Goodhart's Law. Where does this framework add clarity?"
+  }
+]
