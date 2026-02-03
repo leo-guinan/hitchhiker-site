@@ -14,8 +14,8 @@ const subscribeLinks = [
   { label: "RSS", href: podcast.rss },
 ].filter(({ href }) => href);
 
-export default function PodcastPage() {
-  const episodes = getEpisodes();
+export default async function PodcastPage() {
+  const episodes = await getEpisodes();
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20">
@@ -94,7 +94,17 @@ export default function PodcastPage() {
                       </div>
                     )}
                     <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                      {!ep.embedUrl && (
+                      {ep.url && (
+                        <a
+                          href={ep.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-[var(--foreground)] hover:underline"
+                        >
+                          Listen →
+                        </a>
+                      )}
+                      {!ep.embedUrl && !ep.url && (
                         <span className="text-[var(--muted-foreground)]">
                           Episode coming soon
                         </span>

@@ -34,9 +34,9 @@ const valueStreams = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
   const guides = getAllGuides();
-  const episodes = getEpisodes();
+  const episodes = await getEpisodes();
   const essays = getAllEssays();
   const deepDives = getAllDeepDives();
   const latestGuide = guides[0];

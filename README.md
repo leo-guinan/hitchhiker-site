@@ -38,7 +38,7 @@ Copy `.env.example` to `.env.local` and set:
 - **`content/guides/`** – MDX guides (frontmatter: `title`, `excerpt`, `date`, `hook`, `topic`).
 - **`content/deep-dives/`** – MDX deep dives (frontmatter: `title`, `excerpt`, `date`). PDFs generated via `npm run build:pdfs`.
 - **`content/essays/`** – MDX essays (frontmatter: `title`, `excerpt`, `date`).
-- **`content/podcast/episodes.json`** – Episode metadata (number, title, duration, date, type, embedUrl, description, showNotes, transcriptUrl).
+- **Podcast episodes** – Fetched from RSS (`NEXT_PUBLIC_PODCAST_RSS_URL`, defaults to Anchor feed). Revalidated hourly.
 - **`components/`** – Header, Footer, EmailCapture, ShareBar, Fathom.
 - **`lib/content.ts`** – Guide/essay slug listing and frontmatter + content loading.
 - **`lib/podcast.ts`** – Episode listing.
