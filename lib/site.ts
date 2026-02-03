@@ -19,3 +19,7 @@ export const podcast = {
   spotify: process.env.NEXT_PUBLIC_SPOTIFY_URL || "",
   rss: process.env.NEXT_PUBLIC_PODCAST_RSS_URL || "",
 } as const;
+
+export const calCom = {
+  url: process.env.NEXT_PUBLIC_CAL_COM_URL || "https://cal.com/ideanexus/hitchhiker-intro",
+} as const;

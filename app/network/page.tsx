@@ -57,8 +57,7 @@ export default function NetworkPage() {
           There was only one Feynman. We&apos;re a network of them.
         </p>
         <a
-          href="#book"
-          id="book"
+          href="/book-intro"
           className="mt-10 inline-flex h-12 items-center justify-center rounded-md bg-[var(--accent)] px-6 text-base font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90"
         >
           Book Intro Call
@@ -136,7 +135,7 @@ export default function NetworkPage() {
                 ))}
               </ul>
               <a
-                href="#book"
+                href="/book-intro"
                 className="mt-6 inline-flex h-10 w-full items-center justify-center rounded-md border border-[var(--border)] bg-[var(--background)] text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--border)]/50"
               >
                 {tier.cta}
@@ -157,16 +156,19 @@ export default function NetworkPage() {
         </ul>
       </section>
 
-      <section className="mt-20 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-8">
+      <section id="book" className="mt-20 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-[var(--foreground)]">
           Book your intro call
         </h2>
         <p className="mt-2 text-sm text-[var(--muted)]">
           30 minutes. No pitch. We&apos;ll figure out if and how we can help.
         </p>
-        <div className="mt-6 min-h-[400px] rounded-lg border border-[var(--border)] bg-[var(--background)] p-4 text-center text-sm text-[var(--muted)]">
-          Calendly embed: set <code className="rounded bg-[var(--border)] px-1">NEXT_PUBLIC_CALENDLY_URL</code> to show your scheduling link or iframe here.
-        </div>
+        <a
+          href="/book-intro"
+          className="mt-6 inline-flex h-12 items-center justify-center rounded-md bg-[var(--accent)] px-6 text-base font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90"
+        >
+          Book Intro Call
+        </a>
       </section>
 
       <section className="mt-16">

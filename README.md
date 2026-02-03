@@ -30,11 +30,11 @@ Copy `.env.example` to `.env.local` and set:
 - **`NEXT_PUBLIC_SUBSTACK_URL`**, **`NEXT_PUBLIC_TWITTER_URL`**, **`NEXT_PUBLIC_LINKEDIN_URL`**, **`NEXT_PUBLIC_GITHUB_URL`**, **`NEXT_PUBLIC_SPEAKING_URL`** – Footer “Connect” and “Speaking” links. Leave empty to hide.
 - **`NEXT_PUBLIC_APPLE_PODCASTS_URL`**, **`NEXT_PUBLIC_SPOTIFY_URL`**, **`NEXT_PUBLIC_PODCAST_RSS_URL`** – Podcast subscribe links. Leave empty to show “Subscribe links coming soon”.
 - **`NEXT_PUBLIC_FATHOM_SITE_ID`** – Fathom Analytics site ID. Script only loads when set.
-- **`NEXT_PUBLIC_CALENDLY_URL`** – (Optional) Calendly for Network page “Book Intro Call”.
+- **`NEXT_PUBLIC_CAL_COM_URL`** – (Optional) Cal.com scheduling URL for “Book Intro Call”. Defaults to hitchhiker-intro. Book links go through `/book-intro` for Fathom tracking.
 
 ## Structure
 
-- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/deep-dives`, `/deep-dives/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/course/dashboard`, `/course/exercises`, `/course/exercises/day-[1-5]`, `/network`, `/waystations`, `/api/subscribe`, `/api/submit-exercise`, `/api/dashboard-stats`.
+- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/deep-dives`, `/deep-dives/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/course/dashboard`, `/course/exercises`, `/course/exercises/day-[1-5]`, `/network`, `/book-intro` (tracked Cal.com redirect), `/waystations`, `/api/subscribe`, `/api/submit-exercise`, `/api/dashboard-stats`.
 - **`content/guides/`** – MDX guides (frontmatter: `title`, `excerpt`, `date`, `hook`, `topic`).
 - **`content/deep-dives/`** – MDX deep dives (frontmatter: `title`, `excerpt`, `date`). PDFs generated via `npm run build:pdfs`.
 - **`content/essays/`** – MDX essays (frontmatter: `title`, `excerpt`, `date`).
