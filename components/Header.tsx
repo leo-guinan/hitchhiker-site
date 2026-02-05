@@ -2,15 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
+import { HeaderNav } from "@/components/HeaderNav";
 
-const nav = [
+const freeLinks = [
   { href: "/guides", label: "Guides" },
   { href: "/deep-dives", label: "Deep Dives" },
   { href: "/podcast", label: "Podcast" },
+  { href: "/about", label: "About" },
+];
+
+const premiumLinks = [
   { href: "/network", label: "Network" },
   { href: "/course", label: "Course" },
   { href: "/library", label: "Framework Library" },
-  { href: "/about", label: "About" },
 ];
 
 export async function Header() {
@@ -32,38 +36,11 @@ export async function Header() {
           />
           The Hitchhiker&apos;s Guide to the Future
         </Link>
-        <nav className="flex flex-1 items-center justify-end gap-4 sm:gap-6" aria-label="Main">
-          {nav.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-            >
-              {label}
-            </Link>
-          ))}
-          {session ? (
-            <Link
-              href="/library/dashboard"
-              className="rounded-md bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90"
-            >
-              My Library
-            </Link>
-          ) : (
-            <Link
-              href="/library/signin"
-              className="text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-            >
-              Sign in
-            </Link>
-          )}
-          <Link
-            href="/#join"
-            className="rounded-md bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90"
-          >
-            Join the Network
-          </Link>
-        </nav>
+        <HeaderNav
+          freeLinks={freeLinks}
+          premiumLinks={premiumLinks}
+          isLoggedIn={!!session}
+        />
       </div>
     </header>
   );
