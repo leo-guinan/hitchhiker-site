@@ -58,6 +58,21 @@ export default function LibrarySalesPage() {
         </ul>
       </section>
 
+      {/* Free for course completers */}
+      <section className="border-t border-[var(--border)] px-4 py-10 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-[var(--muted)]">
+            <strong className="text-[var(--foreground)]">Complete the free 5-day email course</strong> and submit all five exercises to get free access to the Framework Library—no payment required.
+          </p>
+          <Link
+            href="/course"
+            className="mt-4 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
+          >
+            Start the email course →
+          </Link>
+        </div>
+      </section>
+
       {/* What You Get */}
       <section className="border-t border-[var(--border)] bg-[var(--card)]/30 px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-2xl">
@@ -173,6 +188,14 @@ export default function LibrarySalesPage() {
         <div className="mx-auto max-w-2xl">
           <h2 className="text-2xl font-bold text-[var(--foreground)]">FAQ</h2>
           <dl className="mt-8 space-y-8">
+            <div>
+              <dt className="font-semibold text-[var(--foreground)]">
+                How do I get free access?
+              </dt>
+              <dd className="mt-2 text-[var(--muted)]">
+                Complete the free 5-day email course and submit all five exercises. Everyone who completes the course gets free access to the Framework Library—no payment required.
+              </dd>
+            </div>
             <div>
               <dt className="font-semibold text-[var(--foreground)]">
                 Is this a course?

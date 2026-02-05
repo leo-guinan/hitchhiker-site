@@ -8,12 +8,12 @@ const freeLinks = [
   { href: "/guides", label: "Guides" },
   { href: "/deep-dives", label: "Deep Dives" },
   { href: "/podcast", label: "Podcast" },
+  { href: "/course", label: "Email Course" },
   { href: "/about", label: "About" },
 ];
 
 const premiumLinks = [
   { href: "/network", label: "Network" },
-  { href: "/course", label: "Course" },
   { href: "/library", label: "Framework Library" },
 ];
 

@@ -72,7 +72,7 @@ const faq = [
   },
   {
     q: "What if I don't complete the exercises?",
-    a: "No guilt. The course is self-paced. You can do the exercises on your own anytime—no signup required. But if you complete all five and submit them, you get 50% off the live workshop—proof of work, not just signup.",
+    a: "No guilt. The course is self-paced. You can do the exercises on your own anytime—no signup required. But if you complete all five and submit them, you get 50% off the live workshop and free access to the Framework Library—proof of work, not just signup.",
   },
   {
     q: "Can I do the exercises without signing up?",
@@ -201,9 +201,10 @@ export default function CoursePage() {
         </h2>
         <p className="mt-4 text-[var(--muted)] leading-relaxed">
           Complete all five exercises and submit them to get{" "}
-          <strong className="text-[var(--foreground)]">50% off the live workshop</strong>.
+          <strong className="text-[var(--foreground)]">50% off the live workshop</strong>
+          {" "}and <strong className="text-[var(--foreground)]">free access to the Framework Library</strong>.
           We don&apos;t want signups—we want Hitchhikers who did the work. Show
-          your work, get the discount.
+          your work, get the discount and the library.
         </p>
         <Link
           href="/course/dashboard"
