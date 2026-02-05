@@ -31,18 +31,24 @@ Copy `.env.example` to `.env.local` and set:
 - **`NEXT_PUBLIC_APPLE_PODCASTS_URL`**, **`NEXT_PUBLIC_SPOTIFY_URL`**, **`NEXT_PUBLIC_PODCAST_RSS_URL`** – Podcast subscribe links. Leave empty to show “Subscribe links coming soon”.
 - **`NEXT_PUBLIC_FATHOM_SITE_ID`** – Fathom Analytics site ID. Script only loads when set.
 - **`NEXT_PUBLIC_CAL_COM_URL`** – (Optional) Cal.com scheduling URL for “Book Intro Call”. Defaults to hitchhiker-intro. Book links go through `/book-intro` for Fathom tracking.
+- **Framework Library (Stripe)** – `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_PRICE_ID_LIFETIME`, `STRIPE_PRICE_ID_MONTHLY`. Create two products in Stripe (one $500 one-time, one $50/month) and paste the Price IDs. For local webhook testing: `stripe listen --forward-to localhost:3000/api/webhooks/stripe`.
+- **Auth.js (Framework Library)** – `AUTH_SECRET` (e.g. `openssl rand -base64 32`), `AUTH_TRUST_HOST` (set to `true` in production). Neon is used for both exercise submissions and auth/library tables (users, sessions, library_access, library_passwords).
 
 ## Structure
 
-- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/deep-dives`, `/deep-dives/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/course/dashboard`, `/course/exercises`, `/course/exercises/day-[1-5]`, `/network`, `/book-intro` (tracked Cal.com redirect), `/waystations`, `/api/subscribe`, `/api/submit-exercise`, `/api/dashboard-stats`.
+- **`app/`** – Routes: `/`, `/hitchhiker`, `/about`, `/guides`, `/guides/[slug]`, `/deep-dives`, `/deep-dives/[slug]`, `/podcast`, `/essays`, `/essays/[slug]`, `/course`, `/course/dashboard`, `/course/exercises`, `/course/exercises/day-[1-5]`, `/network`, `/book-intro` (tracked Cal.com redirect), `/waystations`, `/library` (sales), `/library/thanks`, `/library/signin`, `/library/create-account`, `/library/dashboard`, `/library/modules/[moduleSlug]`, `/library/modules/[moduleSlug]/[frameworkSlug]`, `/api/subscribe`, `/api/submit-exercise`, `/api/dashboard-stats`, `/api/library/checkout`, `/api/library/create-account`, `/api/auth/[...nextauth]`, `/api/webhooks/stripe`.
 - **`content/guides/`** – MDX guides (frontmatter: `title`, `excerpt`, `date`, `hook`, `topic`).
 - **`content/deep-dives/`** – MDX deep dives (frontmatter: `title`, `excerpt`, `date`). PDFs generated via `npm run build:pdfs`.
 - **`content/essays/`** – MDX essays (frontmatter: `title`, `excerpt`, `date`).
 - **Podcast episodes** – Fetched from RSS (`NEXT_PUBLIC_PODCAST_RSS_URL`, defaults to Anchor feed). Revalidated hourly.
 - **`components/`** – Header, Footer, EmailCapture, ShareBar, Fathom.
 - **`lib/content.ts`** – Guide/essay slug listing and frontmatter + content loading.
+- **`lib/library-content.ts`** – Framework Library modules and framework MDX listing.
+- **`lib/library-auth.ts`** – Session + library access check for protected library routes.
+- **`lib/auth.ts`** – Auth.js config (Credentials provider, Neon adapter).
 - **`lib/podcast.ts`** – Episode listing.
 - **`lib/site.ts`** – Site config (social URLs, podcast URLs, siteUrl from env).
+- **`content/library/[moduleSlug]/[frameworkSlug].mdx`** – Framework Library MDX (one file per framework).
 
 ## Build
 
@@ -74,4 +80,4 @@ Exercise submissions are stored in Neon Postgres. Set up:
 npm run db:init
 ```
 
-This creates the `submissions` table. Run once per environment (local, production).
+This creates the `submissions` table plus Auth.js tables (`users`, `accounts`, `sessions`, `verification_token`) and `library_access`, `library_passwords`. Run once per environment (local, production).

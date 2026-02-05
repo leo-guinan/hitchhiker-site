@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
 
 const nav = [
   { href: "/guides", label: "Guides" },
@@ -7,10 +9,13 @@ const nav = [
   { href: "/podcast", label: "Podcast" },
   { href: "/network", label: "Network" },
   { href: "/course", label: "Course" },
+  { href: "/library", label: "Framework Library" },
   { href: "/about", label: "About" },
 ];
 
-export function Header() {
+export async function Header() {
+  const session = await getServerSession(authOptions);
+
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--background)]/80">
       <div className="mx-auto flex h-16 max-w-6xl flex-wrap items-center justify-between gap-4 px-4 sm:px-6">
@@ -37,6 +42,21 @@ export function Header() {
               {label}
             </Link>
           ))}
+          {session ? (
+            <Link
+              href="/library/dashboard"
+              className="rounded-md bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90"
+            >
+              My Library
+            </Link>
+          ) : (
+            <Link
+              href="/library/signin"
+              className="text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+            >
+              Sign in
+            </Link>
+          )}
           <Link
             href="/#join"
             className="rounded-md bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-foreground)] transition-opacity hover:opacity-90"
