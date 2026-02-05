@@ -1,0 +1,61 @@
+---
+title: Artifact-per-Stage Auditing (Pipeline Legibility)
+excerpt: Every stage in a process must emit stable artifacts, manifests, and checksums. This creates a trail you can follow.
+---
+
+## What It Is
+
+Every stage in a process must emit stable artifacts (outputs), manifests (metadata), and checksums (verification). This creates a trail you can follow, making debugging possible and replication reproducible.
+
+## What It Produces
+
+- Debuggable pipelines (you can see where things went wrong)
+- Replicable science (others can follow your exact steps)
+- Deterministic "where did it change?" diffs (you know which stage introduced error)
+- Confidence in results (you can audit the path)
+
+## When to Use It
+
+- Research replication (you need to show your work)
+- ML training pipelines (debugging model behavior)
+- High-stakes decision systems (you need audit trails)
+- Any pipeline with hidden transformations
+- Data science workflows
+- Complex institutional processes
+
+## How to Apply It
+
+1. Force every stage to output:
+   - Input snapshot (what came in?)
+   - Transform specification (what operations happened?)
+   - Output snapshot (what came out?)
+   - Metadata + hashes (proof nothing changed)
+   - Intermediate tables/artifacts (show your work)
+2. Verify checksums at each stage
+3. Make all artifacts inspectable
+4. Document the schema for each artifact
+5. Enable diff analysis (compare artifacts between runs)
+
+## Where It Breaks
+
+- When artifacts are too expensive to create (storage, compute constraints)
+- When the transform is non-deterministic (randomness, external systems)
+- When you can't inspect artifacts (proprietary systems, legal restrictions)
+- When there are too many stages to manage
+
+## Who It's For
+
+ML engineers, reproducibility people, technical founders, research teams, anyone who needs to debug complex processes
+
+## Examples
+
+- **ML Pipeline**: Data input → preprocessing artifact → model input artifact → model output artifact → post-processing artifact → final result. Each with hash.
+- **Research**: Raw data → cleaning spec + output → analysis spec + output → results. Fully auditable.
+- **Decision process**: Input docs → analysis artifacts → recommendation artifact → outcome artifact. Can trace what changed outcomes.
+
+## Observable Outcomes
+
+- Ability to reproduce results exactly
+- Fast debugging (you know where things diverged)
+- High confidence in findings (full audit trail)
+- Better collaboration (others can follow your work)

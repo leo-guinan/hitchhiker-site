@@ -1,0 +1,56 @@
+---
+title: ABC Systems (Legibility Wrapping)
+excerpt: Complex systems become composable and auditable when you wrap black boxes. A = contract/action, B = black box, C = verifier/criteria.
+---
+
+## What It Is
+
+Complex systems become composable and auditable when you wrap black boxes. A = contract/action (what goes in), B = black box (untrusted system), C = verifier/criteria (checking outputs). This separates concerns so you can trust the whole without trusting each part.
+
+## What It Produces
+
+- Stable interfaces (you know what to expect from black boxes)
+- Auditable systems (you can verify outputs without understanding inputs)
+- Composable modules (different black boxes can work together)
+- Graceful degradation (when B fails, you know because C detects it)
+
+## When to Use It
+
+- Any time you depend on something you don't control (LLMs, third-party APIs, vendors)
+- Any time you want to turn "magic" into engineering
+- Building ML systems where you don't trust all components
+- Institutional design (you can't trust everyone, but you can verify results)
+- Creating auditable processes
+
+## How to Apply It
+
+1. Define A clearly: What is the input contract? What must be true for this to work?
+2. Treat B as untrusted: Don't assume it works. Design for failure.
+3. Build C independently: How can you verify B's outputs without seeing B's internals?
+4. Create feedback loops: When C detects failure, what happens?
+5. Iterate by tightening A and strengthening C
+6. Document the boundaries: What's your responsibility vs. B's responsibility?
+
+## Where It Breaks
+
+- When you can't define A clearly (too much ambiguity in inputs)
+- When C can't detect failures (verification is impossible)
+- When B is adversarial (actively trying to break A or hide from C)
+- When there's no budget for C (verification costs time/money)
+
+## Who It's For
+
+Engineers, governance designers, AI builders, founders, anyone building systems that must work despite uncertainty
+
+## Examples
+
+- **LLM in production**: A = input format and constraints, B = the LLM (don't trust it), C = output validation checking for hallucination, toxicity, format compliance
+- **Third-party vendor**: A = expected output format, B = vendor (they might fail), C = auditing their outputs against A
+- **Org process**: A = input requirements (who decides, what info is needed), B = decision-maker (they might be biased or wrong), C = outcomes review (does the decision actually work?)
+
+## Observable Outcomes
+
+- Ability to work with unreliable systems safely
+- Faster detection of problems (C catches them)
+- Reduced catastrophic failures (B can fail, but it won't break the whole system)
+- Clearer responsibility (A, B, C each know their job)

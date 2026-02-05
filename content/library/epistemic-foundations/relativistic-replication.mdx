@@ -1,0 +1,58 @@
+---
+title: Relativistic Replication (Invariance Auditing)
+excerpt: Replication isn't rerunning code. It's asking—does the claim survive plausible variations in assumptions?
+---
+
+## What It Is
+
+Replication isn't rerunning code. It's asking: does the claim survive plausible variations in assumptions? A result is only robust if it holds across different frames, different data subsets, different preprocessing choices, and different interpretations.
+
+## What It Produces
+
+- Robustness envelope (the range where claims hold true)
+- Sensitivity bands (where sensitivity to assumptions becomes critical)
+- Load-bearing assumptions map (which assumptions matter most)
+- Confidence calibration (accurate sense of how certain you should be)
+
+## When to Use It
+
+- Before accepting any paper conclusion
+- Before trusting a dashboard metric that guides decisions
+- Before accepting an AI model's analysis or "alignment" claim
+- Before betting company strategy on a single dataset
+- When someone claims they've "proven" something
+- Before replicating results from external teams
+
+## How to Apply It
+
+1. Recompute metrics independently (don't trust their implementation)
+2. Test seed sensitivity (does randomness matter? Run 20 seeds not 1)
+3. Test preprocessing sensitivity (what if you cleaned data differently?)
+4. Test alternative plausible frames (what if the measurement was slightly different?)
+5. Test on subsets (does it hold for all groups or just aggregate?)
+6. Document all assumptions and vary each one
+7. Map which assumptions are load-bearing vs. cosmetic
+
+## Where It Breaks
+
+- When the system is too opaque to vary assumptions (black box proprietary systems)
+- You can't access intermediate artifacts (they won't show you the data or code)
+- When the space of "plausible alternatives" is too large to test
+- When ground truth itself is contested (what counts as success?)
+
+## Who It's For
+
+ML teams, data scientists, reproducibility builders, institutional skeptics, anyone relying on external analysis for decisions
+
+## Examples
+
+- **Paper**: "Model X achieves 95% accuracy" → Test on different data splits, different random seeds, different preprocessing. Does it hold or drop to 85%?
+- **Startup Metrics**: "We've 10x user growth" → Test: same growth across all cohorts? New vs. returning? Organic vs. paid? Definition of "user"?
+- **AI Alignment Claim**: "Our model is aligned" → Test: across what contexts? What happens at distribution shift? What assumptions about human preferences?
+
+## Observable Outcomes
+
+- Higher confidence in your actual results
+- Faster detection of brittleness
+- Fewer surprises when moving to new contexts
+- Ability to explain to stakeholders why results are/aren't trustworthy
