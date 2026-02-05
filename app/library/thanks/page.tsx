@@ -1,13 +1,20 @@
 import Link from "next/link";
+import { SyncPurchaseOnMount } from "./SyncPurchaseOnMount";
 
 export const metadata = {
   title: "Thank You | Framework Library",
   description: "Your purchase was successful.",
 };
 
-export default function LibraryThanksPage() {
+type Props = { searchParams: Promise<{ session_id?: string }> };
+
+export default async function LibraryThanksPage({ searchParams }: Props) {
+  const params = await searchParams;
+  const sessionId = params.session_id ?? null;
+
   return (
     <div className="mx-auto max-w-xl px-4 py-20 text-center sm:px-6 sm:py-28">
+      {sessionId ? <SyncPurchaseOnMount sessionId={sessionId} /> : null}
       <h1 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
         Thank you
       </h1>

@@ -38,9 +38,18 @@ export async function POST(request: Request) {
   try {
     if (event.type === "checkout.session.completed") {
       const session = event.data.object as Stripe.Checkout.Session;
-      const email = (session.customer_email || (session.customer as Stripe.Customer)?.email)?.toString()?.trim()?.toLowerCase();
+      // customer_email is for pre-filling only; submitted email is in customer_details or on Customer
+      let email: string | null =
+        (session.customer_details?.email ?? session.customer_email ?? null) as string | null;
+      if (!email && session.customer && typeof session.customer === "string") {
+        const customer = await stripe.customers.retrieve(session.customer);
+        email = (customer as Stripe.Customer).email ?? null;
+      } else if (!email && session.customer && typeof session.customer === "object" && "email" in session.customer) {
+        email = (session.customer as Stripe.Customer).email ?? null;
+      }
+      email = email?.trim()?.toLowerCase() ?? null;
       if (!email) {
-        console.error("checkout.session.completed: no email");
+        console.error("checkout.session.completed: no email on session", { sessionId: session.id });
         return NextResponse.json({ received: true });
       }
       const customerId = typeof session.customer === "string" ? session.customer : session.customer?.id ?? null;

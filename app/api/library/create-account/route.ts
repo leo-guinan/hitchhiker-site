@@ -33,7 +33,10 @@ export async function POST(request: Request) {
   `;
   if (accessRows.length === 0) {
     return NextResponse.json(
-      { error: "No library access found for this email. Purchase access first." },
+      {
+        error:
+          "No library access found for this email. If you just completed your purchase, wait a moment and try again, or sync from the thank-you page (use the same browser and click Create account from there). Otherwise, purchase access first.",
+      },
       { status: 403 }
     );
   }
