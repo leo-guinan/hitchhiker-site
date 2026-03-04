@@ -20,10 +20,10 @@ export function EmailCapture({
 
   const isCourse = variant === "course";
   const title = isCourse
-    ? "The 5-Day Course: Games You're Actually Playing"
+    ? "Navigation Without GPS: Five Exercises"
     : "Subscribe for updates";
   const description = isCourse
-    ? "Five days to find out if you're a Hitchhiker. Five exercises to prove you can see what we see. One cohort building coordination infrastructure for people who've crossed."
+    ? "Five exercises to map where you are and plot where you're going. Work is how you prove you mean it."
     : "Get new guides and episodes in your inbox.";
   const buttonLabel = isCourse ? "Start Day 1" : "Subscribe";
   const placeholder = "you@example.com";

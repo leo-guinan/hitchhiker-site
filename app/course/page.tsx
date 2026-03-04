@@ -2,9 +2,9 @@ import Link from "next/link";
 import { EmailCapture } from "@/components/EmailCapture";
 
 export const metadata = {
-  title: "5-Day Course | The Hitchhiker's Guide to the Future",
+  title: "Navigation Without GPS | The Hitchhiker's Guide to the Future",
   description:
-    "The Games You're Actually Playing. Five days to map your identity contradictions, audit your games, and design coordination infrastructure. Exercises produce artifacts that prove understanding.",
+    "Five days to map your identity contradictions, audit your games, and design coordination infrastructure. Exercises produce artifacts that prove understanding.",
 };
 
 const designPrinciples = [
@@ -89,10 +89,10 @@ export default function CoursePage() {
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <header className="text-center">
         <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl">
-          5-Day Email Course
+          Navigation Without GPS
         </h1>
         <p className="mt-6 text-2xl font-semibold text-[var(--foreground)]">
-          The Games You&apos;re Actually Playing
+          Five exercises. Real artifacts. Your actual situation.
         </p>
         <p className="mt-4 text-lg text-[var(--muted)] leading-relaxed">
           Five days to map your identity contradictions, audit your games, and
